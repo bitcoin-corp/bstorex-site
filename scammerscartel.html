@@ -4,21 +4,21 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Scammers Cartel shop · bStoreX</title>
-<meta name="description" content="The Scammers Cartel shop on bStoreX: the crew's bWalletX theme, hazard yellow and magenta with a raccoon gang on your card. $1 in BSV. Merch coming at scammerscartel.com.">
+<meta name="description" content="The Scammers Cartel shop on bStoreX: the crew's bWalletX theme, the DJ raccoon on your card, yellow glow on black. $1 in BSV. Merch coming at scammerscartel.com.">
 <link rel="canonical" href="https://bstorex.com/scammerscartel">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://bstorex.com/scammerscartel">
 <meta property="og:site_name" content="bStoreX">
 <meta property="og:title" content="Scammers Cartel shop · bStoreX">
-<meta property="og:description" content="The crew theme for bWalletX: hazard yellow, magenta and a raccoon gang on your card. $1.">
-<meta property="og:image" content="https://bstorex.com/og-scammerscartel-v1.jpg">
+<meta property="og:description" content="The crew theme for bWalletX: the DJ raccoon on your card, yellow glow on black. $1.">
+<meta property="og:image" content="https://bstorex.com/og-scammerscartel-v2.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Scammers Cartel: the crew theme for bWalletX. A cartoon raccoon gang in striped scarves on a hazard-yellow card.">
+<meta property="og:image:alt" content="SCAMMERS CARTEL: the DJ raccoon in a black beanie and shades at the mic. The Space that never closes. Listen free.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Scammers Cartel shop · bStoreX">
-<meta name="twitter:description" content="The crew theme for bWalletX: hazard yellow, magenta and a raccoon gang on your card. $1.">
-<meta name="twitter:image" content="https://bstorex.com/og-scammerscartel-v1.jpg">
+<meta name="twitter:description" content="The crew theme for bWalletX: the DJ raccoon on your card, yellow glow on black. $1.">
+<meta name="twitter:image" content="https://bstorex.com/og-scammerscartel-v2.jpg">
 <meta name="theme-color" content="#000000">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -160,20 +160,37 @@ footer{border-top:1px solid #121317;padding:40px 0 56px;color:var(--dim);font-si
 .unlock span:last-child{color:var(--gold-hi);white-space:nowrap}
 </style>
 <style>
-.sc{--y:#FFD400;--m:#FF2E93}
-.sc .hero h1 span{background:none;color:var(--y)}
+.sc{--y:#FFC400;--o:#FF8A00;--gold:#FFC400;--gold-hi:#FFD84D;--grad:linear-gradient(180deg,#FFE27A,#FFC400 55%,#FF8A00);--edge-gold:rgba(255,196,0,.35);background:#000}
+.sc a:not(.btn){color:var(--y)}
+.sc .btn-gold{color:#000}
+.sc .btn-ghost{color:var(--ink)}
 .sc .kicker{color:var(--y)}
-.sc-card{width:100%;border-radius:16px;border:2px solid var(--y);box-shadow:0 0 40px -10px rgba(255,46,147,.6);display:block}
+.sc .tag.live{background:var(--y)}
+.scan{background-image:repeating-linear-gradient(0deg,rgba(0,0,0,.28) 0 2px,transparent 2px 4px)}
+.banner{position:relative;overflow:hidden;border-bottom:1px solid #2a1a05}
+.banner img{display:block;width:100%;height:clamp(300px,56vw,620px);object-fit:cover;object-position:50% 30%;filter:saturate(1.1)}
+.banner .scan{position:absolute;inset:0;pointer-events:none}
+.band{position:absolute;left:0;right:0;bottom:0;padding:22px 0 26px;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.82))}
+.band h1{font:800 clamp(28px,8.5vw,104px)/.95 var(--hf);letter-spacing:-.01em;color:var(--y);text-transform:uppercase;text-shadow:-2px 0 rgba(255,0,60,.55),2px 0 rgba(0,200,255,.45),0 0 30px rgba(255,138,0,.45)}
+.band p{margin:10px 0 0;font:700 clamp(17px,2.4vw,26px)/1.25 var(--hf);color:#fff}
+.band .dom{display:block;margin-top:8px;font:600 15px/1 var(--hf);color:var(--o)}
+.glow{background:radial-gradient(ellipse at 50% 0%,rgba(255,138,0,.22),transparent 60%)}
+.intro{padding:48px 16px 8px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+@media (max-width:860px){.intro{grid-template-columns:1fr;gap:24px;padding-top:32px}}
+.intro>*{min-width:0}
+.intro .lede{margin:0 0 24px}
+.sc-card{width:100%;height:auto;aspect-ratio:1011/637;object-fit:cover;border-radius:16px;border:2px solid var(--y);box-shadow:0 0 50px -8px rgba(255,138,0,.7);display:block}
 .tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:40px}
 @media (max-width:760px){.tiles{grid-template-columns:1fr}}
-.tile{position:relative;display:block;background:var(--card);border:1px solid var(--edge);border-radius:var(--r);padding:26px 24px;color:var(--ink);text-decoration:none}
-.tile:hover{border-color:rgba(255,212,0,.5)}
+.tile{position:relative;display:block;background:linear-gradient(180deg,#140b02,#0a0602);border:1px solid #3a2406;border-radius:var(--r);padding:26px 24px;color:var(--ink);text-decoration:none}
+.sc .tile{color:var(--ink)}
+.tile:hover{border-color:rgba(255,196,0,.6);box-shadow:0 0 30px -10px rgba(255,138,0,.6)}
 .tile h3{font-size:22px;margin:16px 0 8px}
 .tile p{margin:0;color:var(--muted)}
 .tile .tag{position:absolute;top:22px;right:22px}
-.sc .tag.live{background:var(--y)}
 .price{font:700 20px/1 var(--hf);color:var(--y)}
 .note{margin:28px 0 0;color:var(--dim);font-size:14px;max-width:720px}
+.sc section{border-top:1px solid #23160a}
 </style>
 </head>
 <body class="sc">
@@ -188,19 +205,28 @@ footer{border-top:1px solid #121317;padding:40px 0 56px;color:var(--dim);font-si
 </header>
 
 <main>
-<div class="wrap hero">
+<div class="banner">
+  <img src="/scammerscartel-hero.webp" width="1280" height="720" alt="The Scammers Cartel DJ raccoon in a black beanie and dark shades, mouth open at a mic and decks, with gold chains and rubber ducks in a yellow-orange glow.">
+  <div class="scan" aria-hidden="true"></div>
+  <div class="band"><div class="wrap">
+    <h1>Scammers Cartel</h1>
+    <p>The Space that never closes. Listen free.</p>
+    <a class="dom" href="https://scammerscartel.com">scammerscartel.com</a>
+  </div></div>
+</div>
+
+<div class="glow"><div class="wrap intro">
   <div>
     <p class="eyebrow">bStoreX shop · Part of bWalletX</p>
-    <h1>Scammers<br><span>Cartel.</span></h1>
-    <p class="lede">The crew's shop. Yes, the name is a joke: nobody here is running a scam, we just like a laugh. First stop: a bWalletX theme in hazard yellow and magenta, with a raccoon gang on your card.</p>
+    <p class="lede">The crew's shop on bStoreX. The name is a joke, the music isn't. Put the DJ raccoon on your wallet card, and grab the merch when it drops.</p>
     <div class="ctas">
       <a class="btn btn-gold" href="https://bwalletx.com/get">Get bWalletX</a>
-      <a class="btn btn-ghost" href="https://scammerscartel.com">scammerscartel.com</a>
+      <a class="btn btn-ghost" href="https://scammerscartel.com">Listen free</a>
     </div>
-    <p class="hint">Part of <a href="https://bwalletx.com">bWalletX</a>. Bought in Exchange › Store, paid in BSV with one approval.</p>
+    <p class="hint">Part of <a href="https://bwalletx.com">bWalletX</a>. Themes are bought in Exchange › Store, paid in BSV with one approval.</p>
   </div>
-  <img class="sc-card" src="/scammerscartel-card.webp" width="1011" height="637" alt="The Scammers Cartel card: three cartoon raccoons in yellow and magenta striped scarves and flat caps, peeking over crates marked with question marks.">
-</div>
+  <img class="sc-card" src="/scammerscartel-card.webp" width="1011" height="637" alt="The Scammers Cartel wallet card: the DJ raccoon at the mic.">
+</div></div>
 
 <section id="items">
   <div class="wrap">
@@ -210,13 +236,13 @@ footer{border-top:1px solid #121317;padding:40px 0 56px;color:var(--dim);font-si
       <a class="tile" href="https://bwalletx.com/store">
         <span class="tag soon">Coming</span>
         <h3>Scammers Cartel theme</h3>
-        <p>App colours, card design and card art. Hazard yellow, magenta glow, true black. Arrives in the next bWalletX release, in Exchange › Store.</p>
+        <p>The DJ raccoon on your card, yellow and orange glow on black. Arrives in the next bWalletX release, in Exchange › Store.</p>
         <p style="margin-top:14px"><span class="price">$1</span></p>
       </a>
       <a class="tile" href="https://scammerscartel.com/shop">
         <span class="tag soon">Coming</span>
-        <h3>Merch</h3>
-        <p>Hooligan-culture t-shirts and more, sold on the crew's own site.</p>
+        <h3>Scammers Cartel Merch Store — coming soon</h3>
+        <p>T-shirts and more, sold on the crew's own site.</p>
         <p style="margin-top:14px"><span class="price">scammerscartel.com/shop</span></p>
       </a>
     </div>
