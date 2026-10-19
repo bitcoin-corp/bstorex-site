@@ -1,1 +1,4 @@
-{ "cleanUrls": true }
+{
+  "cleanUrls": true,
+  "redirects": [{ "source": "/scammerscartel", "destination": "/", "permanent": false }]
+}
