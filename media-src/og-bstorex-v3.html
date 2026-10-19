@@ -1,0 +1,105 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}body{margin:0;width:1200px;height:630px;background:#000;color:#f4f1e8;font-family:'IBM Plex Sans';position:relative;overflow:hidden}
+body::before{content:"";position:absolute;right:-120px;top:40px;width:720px;height:620px;background:radial-gradient(closest-side,rgba(245,184,0,.22),transparent 70%)}
+.logo{position:absolute;left:72px;top:60px;display:flex;align-items:center;gap:14px;font:700 34px/1 'Space Grotesk';letter-spacing:-.02em}
+.g{color:#ffd24d}
+h1{position:absolute;left:72px;top:136px;margin:0;font:700 84px/1 'Space Grotesk';letter-spacing:-.05em}
+h1 span{background:linear-gradient(180deg,#ffe58a,#ffd24d 55%,#c98f00);-webkit-background-clip:text;color:transparent}
+p{position:absolute;left:72px;top:448px;margin:0;width:600px;font:400 27px/1.35 'IBM Plex Sans';color:#cfcabd}
+.foot{position:absolute;left:72px;bottom:52px;font:500 22px/1 'Space Grotesk';color:#7c7a73}
+.foot b{color:#f4f1e8;font-weight:500}
+.card{position:absolute;right:72px;top:120px;width:390px;background:#0d0e11;border:1px solid #2a2c33;border-radius:22px;padding:26px;transform:rotate(3deg);box-shadow:0 40px 80px -30px rgba(245,184,0,.4)}
+.h{display:flex;justify-content:space-between;font:600 17px/1 'Space Grotesk';color:#a9a69c}
+.ex{font:500 13px/1 'Space Grotesk';letter-spacing:.12em;color:#7c7a73}
+.av{width:52px;height:52px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ffe58a,#c98f00);display:grid;place-items:center;font:700 20px/1 'Space Grotesk';color:#000;flex:none}
+.who{display:flex;gap:14px;align-items:center;margin:22px 0 14px}.who b{display:block;font:600 22px/1.2 'Space Grotesk'}.who small{color:#7c7a73;font-size:17px}
+.ln{display:flex;justify-content:space-between;padding:13px 0;border-top:1px solid #1d1e23;font-size:18px;color:#a9a69c}.ln span:last-child{color:#f4f1e8}
+.tot{font:600 22px/1.2 'Space Grotesk';color:#f4f1e8}.tot span:last-child{color:#ffd24d}
+.seal{margin-top:12px;padding:12px 14px;border-radius:12px;background:rgba(245,184,0,.08);border:1px solid rgba(255,210,77,.3);font-size:16px;color:#cfcabd}
+:root{
+  --bg:#000;--ink:#f4f1e8;--muted:#a9a69c;--dim:#7c7a73;
+  --gold:#f5b800;--gold-hi:#ffd24d;--gold-lo:#c98f00;
+  --card:#0d0e11;--edge:#1f2127;--edge-gold:rgba(255,210,77,.28);
+  --grad:linear-gradient(180deg,#ffe58a,#ffd24d 55%,#c98f00);
+  --r:18px;--hf:'Space Grotesk',system-ui,sans-serif;--bf:'IBM Plex Sans',system-ui,sans-serif;
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+.example{font:500 11px/1 var(--hf);letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+/* hero animation: one CSS sequence (arrive, staged reveal, pop), base styles = final state */
+html,body{overflow-x:clip}.hero{overflow-x:clip}
+.stage{position:relative;justify-self:center;width:100%;max-width:420px}
+.stage::before{content:"";position:absolute;inset:-8% -10%;z-index:-1;background:radial-gradient(closest-side at 40% 35%,rgba(245,184,0,.2),transparent 70%)}
+.stage.wait,.stage.wait *{animation-play-state:paused!important}
+.dev{position:relative;background:#08080a;border:1px solid var(--edge);border-radius:30px;padding:22px 20px 20px;box-shadow:0 40px 90px -40px rgba(245,184,0,.45);animation:arrive 1s var(--ease) both}
+.sh{display:flex;justify-content:space-between;align-items:center;gap:12px;font:600 14px/1.2 var(--hf);color:var(--muted)}
+.chips{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-top:18px}
+.chip{padding:7px 12px;border-radius:999px;background:rgba(245,184,0,.12);color:var(--gold-hi);font:600 12px/1 var(--hf);white-space:nowrap;animation:pop .45s var(--ease) 2.4s both}
+.chip+.chip{animation-delay:2.55s}
+@keyframes arrive{from{opacity:0;transform:translateY(18px) scale(.97)}}
+@keyframes up{from{opacity:0;transform:translateY(8px)}}
+@keyframes pop{from{opacity:0;transform:translateY(8px) scale(.85)}}
+@keyframes slide{from{opacity:0;transform:translateX(-24px)}}
+@keyframes fade{from{opacity:0}}
+@keyframes pulse{50%{opacity:.35}}
+.shelf{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px;padding-bottom:12px;border-bottom:2px solid rgba(255,210,77,.22)}
+.pc{display:flex;flex-direction:column;border-radius:14px;background:#111216;border:1px solid var(--edge);overflow:hidden;animation:pop .5s var(--ease) both}
+.pc:nth-child(1){animation-delay:.5s}.pc:nth-child(2){animation-delay:.65s}.pc:nth-child(3){animation-delay:.8s}
+.art{height:78px;display:grid;place-items:center;font:700 18px/1 var(--hf);letter-spacing:-.02em}
+.a1{background:radial-gradient(circle at 30% 25%,#ff5fa8,#7a0f45 70%);color:#fff}
+.a2{background:radial-gradient(circle at 30% 25%,#ff5a4f,#5c0a0a 70%);color:#fff}
+.a3{background:radial-gradient(circle at 30% 25%,#9d7bff,#1d1240 70%);color:#fff}
+.pc b{padding:8px 8px 0;font:600 12px/1.2 var(--hf)}
+.pc small{padding:2px 8px 8px;color:var(--dim);font-size:10px}
+.buy{position:relative;margin:0 8px 8px;height:28px;border-radius:999px;display:grid;place-items:center;font:700 11px/1 var(--hf);color:#000;background:var(--grad)}
+.buy span{grid-area:1/1}
+.pc.on .buy{animation:press .3s ease 1.75s both}
+.pc.on .buy .b1{opacity:0;animation:out .2s 2s both}
+.pc.on .buy .b2{animation:fade .25s 2.05s both}
+.pc:not(.on) .buy{background:rgba(245,184,0,.12);color:var(--gold-hi)}
+.tap{position:absolute;left:50%;top:50%;width:26px;height:26px;margin:-13px 0 0 -13px;border-radius:50%;border:2px solid #fff;opacity:0;animation:tap .6s ease-out 1.6s both}
+.rcpt{position:relative;margin-top:16px;padding:16px;border-radius:16px;background:linear-gradient(160deg,#16130a,#0d0e11 65%);border:1px solid var(--edge-gold);animation:rise .7s var(--ease) 2.25s both}
+.rc-h{display:flex;justify-content:space-between;align-items:center;font:600 13px/1 var(--hf);color:var(--muted)}
+.rc-h b{color:var(--gold-hi)}
+.rc-who{display:flex;gap:12px;align-items:center;margin:12px 0 8px}
+.rc-who i{width:40px;height:40px;border-radius:10px;flex:none;background:radial-gradient(circle at 30% 25%,#ff5fa8,#7a0f45 70%)}
+.rc-who b{display:block;font:600 15px/1.2 var(--hf)}.rc-who small{color:var(--dim);font-size:12px}
+.rl{display:flex;justify-content:space-between;padding:8px 0;border-top:1px solid #1a1b20;font-size:13px;color:var(--muted)}
+.rl span:last-child{color:var(--ink)}.rl.t{font:600 15px/1.2 var(--hf);color:var(--ink)}.rl.t span:last-child{color:var(--gold-hi)}
+.sig{display:inline-block;width:7px;height:7px;margin-right:6px;border-radius:50%;background:#ffd24d;vertical-align:1px;animation:pulse 2.4s ease-in-out 3.4s infinite}
+@keyframes press{50%{transform:scale(.9)}}
+@keyframes out{from{opacity:1}to{opacity:0}}
+@keyframes tap{0%{opacity:.9;transform:scale(.4)}100%{opacity:0;transform:scale(1.8)}}
+@keyframes rise{from{opacity:0;transform:translateY(40px)}}
+@media (max-width:420px){.dev{padding:20px 14px 16px}.shelf{gap:7px}.art{height:64px;font-size:15px}.pc b{font-size:11px}.buy{font-size:10px;margin:0 6px 6px}}
+@media (prefers-reduced-motion:reduce){.stage *{animation:none!important}.tap{display:none}.pc.on .buy .b1{opacity:0}}
+
+.stage *{animation:none!important}.stage::before{display:none}
+.ogst{position:absolute;right:64px;top:38px;width:420px;transform:rotate(2deg)}.ogst .stage{max-width:none}
+.ogst p{position:static;width:auto;left:auto;top:auto;color:inherit}
+</style></head><body>
+<div class="logo"><img src="../logo.svg" width="30" height="40"><span>bStore<span class="g">X</span></span></div>
+<h1>Sell digital<br>things,<br><span>paid in Bitcoin.</span></h1>
+<p>The bWalletX Store on the web: themes and emoji themes, $1 each.</p>
+<div class="foot"><b>bstorex.com</b> · Themes on sale in bWalletX today</div>
+<div class="ogst"><div class="stage" role="img" aria-label="The bWalletX Store shelf: NPG, NPGX and VexVoid themes at $1 each. The NPG theme is bought with one tap, and a signed receipt slides into the buyer's wallet.">
+    <div class="dev">
+      <div class="sh"><span>Store › Themes</span><span class="example">$1 each</span></div>
+      <div class="shelf">
+        <div class="pc on"><div class="art a1">NPG</div><b>NPG theme</b><small>Ninja Punk Girls</small><div class="buy"><span class="b1">Buy · $1</span><span class="b2">&#10003; Owned</span><i class="tap" aria-hidden="true"></i></div></div>
+        <div class="pc"><div class="art a2">NPGX</div><b>NPGX theme</b><small>Themes</small><div class="buy"><span>Buy · $1</span></div></div>
+        <div class="pc"><div class="art a3">V</div><b>VexVoid theme</b><small>Themes</small><div class="buy"><span>Buy · $1</span></div></div>
+      </div>
+      <div class="rcpt">
+        <div class="rc-h"><span>Receipt</span><b><span class="sig" aria-hidden="true"></span>Signed</b></div>
+        <div class="rc-who"><i></i><div><b>NPG theme</b><small>Ninja Punk Girls · Themes</small></div></div>
+        <div class="rl"><span>Paid with</span><span>BSV, one approval</span></div>
+        <div class="rl"><span>Kept in</span><span>Your wallet</span></div>
+        <div class="rl t"><span>Price</span><span>$1</span></div>
+      </div>
+      <div class="chips"><span class="chip">&#10003; Yours to keep</span><span class="chip">Receipt saved on chain</span></div>
+    </div>
+  </div>
+</div>
+</body></html>
