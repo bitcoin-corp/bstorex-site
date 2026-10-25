@@ -1,0 +1,11 @@
+{
+  "v": 2,
+  "name": "bStoreX",
+  "mode": "dark",
+  "accent": "#F5B800",
+  "accentHi": "#FFD24D",
+  "bg": "#000000",
+  "surface": "#0D0E11",
+  "text": "#F4F1E8",
+  "logo": "/logo.svg"
+}
