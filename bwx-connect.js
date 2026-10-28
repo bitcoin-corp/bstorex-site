@@ -13,7 +13,7 @@
   const esc = (t) => String(t).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
   const short = (k) => k.slice(0, 6) + '…' + k.slice(-4);
   const css = document.createElement('style');
-  css.textContent = `.bwxc{display:inline-flex;align-items:center;gap:8px;min-height:38px;padding:0 16px;border-radius:999px;border:1px solid var(--bwxc-edge,rgba(255,210,77,.45));background:var(--bwxc-bg,#0b0b0c);color:var(--bwxc-fg,#ffd24d);font-family:inherit;font-size:14px;font-weight:600;line-height:1;cursor:pointer;white-space:nowrap}
+  css.textContent = `.bwxc{text-decoration:none;display:inline-flex;align-items:center;gap:8px;min-height:38px;padding:0 16px;border-radius:999px;border:1px solid var(--bwxc-edge,rgba(255,210,77,.45));background:var(--bwxc-bg,#0b0b0c);color:var(--bwxc-fg,#ffd24d);font-family:inherit;font-size:14px;font-weight:600;line-height:1;cursor:pointer;white-space:nowrap}
   .bwxc:hover{border-color:var(--bwxc-fg,#ffd24d)}.bwxc:focus-visible{outline:2px solid var(--bwxc-fg,#ffd24d);outline-offset:2px}
   .bwxc.on{background:var(--bwxc-fg,#ffd24d);color:var(--bwxc-on,#000);border-color:transparent}
   .bwxc i{width:8px;height:8px;border-radius:50%;background:currentColor;display:block;flex:none}
@@ -22,9 +22,21 @@
   // Brand colour for the button: <span data-bwx-connect data-fg="#5ab8ff" data-on="#000"></span> (default gold).
   slots.forEach((s) => { if (s.dataset.fg) s.style.setProperty('--bwxc-fg', s.dataset.fg); if (s.dataset.on) s.style.setProperty('--bwxc-on', s.dataset.on); if (s.dataset.fg) s.style.setProperty('--bwxc-edge', s.dataset.fg + '73'); });
 
-  let key = null, handle = null, busy = false;
+  // ONE wallet control in the nav, by state (owner, 28 Oct 2026): no wallet in this browser -> Get bWalletX (by platform);
+  // a wallet here -> Connect; connected -> the $handle chip. Phones can't be told apart, so they get Connect (it pairs).
+  const ua = navigator.userAgent, phone = /iPhone|iPad|Android/i.test(ua);
+  const getUrl = /iPhone|iPad|iPod/i.test(ua) ? 'https://bwalletx.com/iphone' : /Android/i.test(ua) ? 'https://bwalletx.com/android'
+    : /Chrome\//.test(ua) && !/Edg\/|OPR\//.test(ua) ? 'https://bwalletx.com/extension' : 'https://bwalletx.com/get';
+  let key = null, handle = null, busy = false, noWallet = false;
   const draw = () => slots.forEach((s) => {
     s.innerHTML = '';
+    if (!key && !busy && noWallet) {
+      const a = document.createElement('a');
+      a.className = 'bwxc'; a.href = getUrl; a.target = '_blank'; a.rel = 'noopener';
+      a.textContent = 'Get bWalletX';
+      s.appendChild(a);
+      return;
+    }
     const b = document.createElement('button');
     b.type = 'button';
     b.className = 'bwxc' + (key ? ' on' : '');
@@ -80,4 +92,5 @@
 
   draw();
   if (get()) connect(false);
+  else if (!phone && !window.CWI) C.discoverBwalletX(800).then((f) => { if (!f && !key) { noWallet = true; draw(); } }).catch(() => {});
 })();
