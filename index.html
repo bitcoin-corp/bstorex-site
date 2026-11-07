@@ -152,7 +152,7 @@ h2{font-size:clamp(32px,5vw,52px);line-height:1.04;max-width:780px}
 @media (max-width:420px){.facts li{grid-template-columns:1fr;gap:2px}}
 .credit{margin:20px 0 0;font-size:15px;color:var(--muted)}
 .credit b{color:var(--ink);font-weight:500}
-.sep{margin:12px 0 0;font-size:14px;color:var(--dim)}
+.sep{margin:12px 0 0;font-size:14px;color:var(--muted)}
 .slot{display:flex;flex-direction:column;justify-content:center;gap:10px;border:1px dashed #34363d;border-radius:var(--r);padding:28px 26px;color:var(--muted)}
 .slot h3{font-size:22px;color:var(--ink)}
 .slot p{margin:0}
@@ -233,7 +233,7 @@ footer{border-top:1px solid #121317;padding:40px 0 56px;color:var(--dim);font-si
   <div class="wrap">
     <p class="kicker">How it works</p>
     <h2>You pay after the <span class="gold">proof</span>, not before.</h2>
-    <p class="sub">This is how bstore, the first network we plan to list, works today in its own software. bStoreX will be the front door: one place to find providers, compare their terms and pay from your wallet.</p>
+    <p class="sub">This is how bstore, the first network we plan to list, works today in its own software. bStoreX will be the front door: one place to find providers, compare their terms and pay from your wallet. The storage itself is provided by the provider you choose.</p>
     <ol class="steps">
       <li><span class="num">01</span><h3>Put it once</h3><p>You publish a file once and name a bounty for holding it. The providers serving your bucket receive it, and each decides whether to hold it.</p></li>
       <li><span class="num">02</span><h3>Providers prove they hold it</h3><p>A provider that holds the file says so on the BSV blockchain, then has to pass a challenge: your own client samples small pieces of the file and checks each one against the file's proof root.</p></li>
@@ -252,6 +252,7 @@ footer{border-top:1px solid #121317;padding:40px 0 56px;color:var(--dim);font-si
     <p class="kicker">Networks</p>
     <h2>The first network: bstore.</h2>
     <p class="sub">Each network on bStoreX will have its own providers, terms and way of proving what it holds. We start with one, and plan to add more.</p>
+    <p class="sub"><span class="ink">Storage is provided by the listed provider, not by bStoreX or The Bitcoin Corporation Ltd (bCorp).</span> bStoreX is where you find and compare providers.</p>
     <div class="nets">
       <article class="net">
         <div class="net-h"><h3>bstore</h3><span class="tag exp">Experimental</span><span class="tag soon">Not listed yet</span></div>
@@ -264,7 +265,7 @@ footer{border-top:1px solid #121317;padding:40px 0 56px;color:var(--dim);font-si
           <li><span>Providers</span><span>None public yet, so none listed here</span></li>
         </ul>
         <p class="credit"><b>bstore is open-source software by Lightweb Inc. (Apache-2.0).</b> <a href="https://github.com/lightwebinc/bstore">github.com/lightwebinc/bstore</a></p>
-        <p class="sep">bStoreX is a separate service from The Bitcoin Corporation Ltd. It isn't made by Lightweb Inc.</p>
+        <p class="sep">bStoreX is not affiliated with or endorsed by Lightweb.</p>
       </article>
       <div class="slot">
         <span class="tag soon" style="align-self:flex-start">Coming</span>
