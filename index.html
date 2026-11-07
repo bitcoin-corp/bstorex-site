@@ -11,14 +11,14 @@
 <meta property="og:site_name" content="bStoreX">
 <meta property="og:title" content="bStoreX · The storage market (preview)">
 <meta property="og:description" content="Compare storage providers in one place. Pay from your wallet, after the check. Preview: nothing is live yet.">
-<meta property="og:image" content="https://bstorex.com/og-bstorex-storage-v1.png?v=2">
+<meta property="og:image" content="https://bstorex.com/og-bstorex-storage-v1.png?v=3">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="bStoreX, preview, coming soon: The storage market. Compare storage providers in one place, pay from your wallet after the check. An illustration of one file held by three providers: two have passed, one is being checked.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="bStoreX · The storage market (preview)">
 <meta name="twitter:description" content="Compare storage providers in one place. Pay from your wallet, after the check. Preview: nothing is live yet.">
-<meta name="twitter:image" content="https://bstorex.com/og-bstorex-storage-v1.png?v=2">
+<meta name="twitter:image" content="https://bstorex.com/og-bstorex-storage-v1.png?v=3">
 <meta name="theme-color" content="#000000">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -225,7 +225,7 @@ footer{border-top:1px solid #121317;padding:40px 0 56px;color:var(--dim);font-si
         <div class="lane"><div><b>Provider B</b><small>Holds it · sampled check</small></div><span class="st ok">&#10003; Proof passed</span></div>
         <div class="lane"><div><b>Provider C</b><small>Holds it · being checked</small></div><span class="st wait"><i aria-hidden="true"></i>Checking</span></div>
       </div>
-      <div class="pay"><div>Paid after the proof<small>From your own wallet, to the providers that passed</small></div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div>
+      <div class="pay"><div>Paid after the check<small>From your own wallet, to the providers that passed</small></div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div>
     </div>
     <figcaption class="cap">How a race works on bstore. Not a live listing.</figcaption>
   </figure>
@@ -234,12 +234,12 @@ footer{border-top:1px solid #121317;padding:40px 0 56px;color:var(--dim);font-si
 <section id="how">
   <div class="wrap">
     <p class="kicker">How it works</p>
-    <h2>You pay after the <span class="gold">proof</span>, not before.</h2>
+    <h2>You pay after the <span class="gold">check</span>, not before.</h2>
     <p class="sub">This is how bstore, the first network we plan to list, works today in its own software. bStoreX will be the front door: one place to find providers, compare their terms and pay from your wallet. The storage itself is provided by the provider you choose.</p>
     <ol class="steps">
       <li><span class="num">01</span><h3>Put it once</h3><p>You publish a file once and set a payment for holding it (bstore calls it a bounty). The providers serving your bucket receive it, and each decides whether to hold it.</p></li>
       <li><span class="num">02</span><h3>Providers prove they hold it</h3><p>A provider that holds the file says so on the BSV blockchain, then has to pass a challenge: your own client samples small pieces of the file and checks each one against the file's proof root.</p></li>
-      <li><span class="num">03</span><h3>You pay after the proof</h3><p>The first providers to pass are paid by your own transaction, split by rank. You choose how many providers you pay. Nothing is paid for a promise.</p></li>
+      <li><span class="num">03</span><h3>You pay after the check</h3><p>The first providers to pass are paid by your own transaction, split by rank. You choose how many providers you pay. Nothing is paid for a promise.</p></li>
       <li><span class="num">04</span><h3>Your S3 tools work</h3><p>bstore's experimental gateway speaks S3, so the AWS CLI, the SDKs and most S3 clients need only an endpoint and keys.</p></li>
     </ol>
     <div class="note">
