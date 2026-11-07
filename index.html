@@ -3,123 +3,48 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>bStoreX · Sell digital things, paid in Bitcoin</title>
-<meta name="description" content="bStoreX: the bWalletX Store on the web. Themes and emoji themes sell today for $1 in Bitcoin, each with a signed receipt. Editions and sellers' own shops are coming. Storage lives at bDriveX.">
+<title>bStoreX · The storage market (preview)</title>
+<meta name="description" content="bStoreX is the storage market, coming soon. Put your files with whichever storage provider suits you, compare them in one place, pay from your wallet in Bitcoin, and get proof the bytes are held. Preview: nothing is live yet.">
 <link rel="canonical" href="https://bstorex.com/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://bstorex.com/">
 <meta property="og:site_name" content="bStoreX">
-<meta property="og:title" content="bStoreX · Sell digital things, paid in Bitcoin">
-<meta property="og:description" content="The bWalletX Store on the web. Themes and emoji themes, paid in Bitcoin with one tap, with a signed receipt for every sale.">
-<meta property="og:image" content="https://bstorex.com/og-bstorex-v3.png">
+<meta property="og:title" content="bStoreX · The storage market (preview)">
+<meta property="og:description" content="Coming soon: compare storage providers in one place, pay from your wallet in Bitcoin, and get proof the bytes are held. The first network planned is bstore, open-source software by Lightweb Inc.">
+<meta property="og:image" content="https://bstorex.com/og-bstorex-storage-v1.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="bStoreX: Sell digital things, paid in Bitcoin. A real receipt for the $1 NPG theme.">
+<meta property="og:image:alt" content="bStoreX, preview, coming soon: The storage market. Compare providers, pay after the proof. An illustration of one file held by three providers, two of them passing a proof.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="bStoreX · Sell digital things, paid in Bitcoin">
-<meta name="twitter:description" content="The bWalletX Store on the web. Themes and emoji themes, paid in Bitcoin, with a signed receipt for every sale.">
-<meta name="twitter:image" content="https://bstorex.com/og-bstorex-v3.png">
+<meta name="twitter:title" content="bStoreX · The storage market (preview)">
+<meta name="twitter:description" content="Coming soon: compare storage providers in one place, pay from your wallet in Bitcoin, and get proof the bytes are held.">
+<meta name="twitter:image" content="https://bstorex.com/og-bstorex-storage-v1.png">
 <meta name="theme-color" content="#000000">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#000;--ink:#f4f1e8;--muted:#a9a69c;--dim:#7c7a73;
+  --bg:#000;--ink:#f4f1e8;--muted:#a9a69c;--dim:#8a877f;
   --gold:#f5b800;--gold-hi:#ffd24d;--gold-lo:#c98f00;
   --card:#0d0e11;--edge:#1f2127;--edge-gold:rgba(255,210,77,.28);
   --grad:linear-gradient(180deg,#ffe58a,#ffd24d 55%,#c98f00);
-  --r:18px;--hf:'Space Grotesk',system-ui,sans-serif;--bf:'IBM Plex Sans',system-ui,sans-serif;
+  --r:18px;--hf:'Space Grotesk',system-ui,sans-serif;--bf:'IBM Plex Sans',system-ui,sans-serif;--mf:'IBM Plex Mono',ui-monospace,monospace;
   --ease:cubic-bezier(.2,.8,.2,1);
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--bf);overflow-x:hidden}
+html,body{overflow-x:clip}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--bf)}
 a{color:var(--gold-hi);text-underline-offset:3px}
-a:focus-visible{outline:2px solid var(--gold-hi);outline-offset:3px;border-radius:8px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--gold-hi);outline-offset:3px;border-radius:8px}
 .wrap{max-width:1120px;margin:0 auto;padding:0 16px}
 h1,h2,h3{font-family:var(--hf);letter-spacing:-.025em;margin:0}
 .gold{color:var(--gold-hi)}
 .ink{color:var(--ink);font-weight:500}
 
-.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
-.brand{display:flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none;font:700 21px/1 var(--hf);letter-spacing:-.02em}
-.brand img{display:block}
-.nav-links{display:flex;gap:22px;align-items:center}
-.nav-links a:not(.btn){color:var(--muted);text-decoration:none;font-size:15px}
-.nav-links a:not(.btn):hover{color:var(--ink)}
-@media (max-width:640px){.nav-links .hide-s{display:none}}
-
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:0 22px;border-radius:999px;font:600 16px/1 var(--hf);text-decoration:none;transition:transform .16s var(--ease),box-shadow .16s var(--ease),border-color .16s}
-.btn-gold{background:var(--grad);color:#000;box-shadow:0 0 0 1px rgba(255,210,77,.35),0 10px 30px -10px rgba(245,184,0,.6),inset 0 1px 0 rgba(255,255,255,.5)}
-.btn-gold:hover{transform:translateY(-1px);box-shadow:0 0 0 1px rgba(255,210,77,.5),0 14px 36px -10px rgba(245,184,0,.75),inset 0 1px 0 rgba(255,255,255,.5)}
-.btn-gold:active{transform:none}
-.btn-ghost{color:var(--ink);border:1px solid var(--edge)}
-.btn-ghost:hover{border-color:var(--edge-gold)}
-.nav .btn{height:40px;padding:0 16px;font-size:15px}
-
-.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding:56px 16px 88px}
-.eyebrow{font:500 13px/1 var(--hf);letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin:0 0 20px}
-.hero h1{font-size:clamp(52px,8.4vw,96px);line-height:.96;letter-spacing:-.045em}
-.hero h1 span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.lede{font-size:19px;color:var(--muted);max-width:520px;margin:24px 0 32px}
-.ctas{display:flex;flex-wrap:wrap;gap:12px}
-.hint{margin:18px 0 0;font-size:14px;color:var(--dim)}
-@media (max-width:900px){.hero{grid-template-columns:1fr;gap:28px;padding:28px 16px 64px}}
-
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-}
-
-section{padding:88px 0;border-top:1px solid #121317}
-.kicker{font:500 13px/1 var(--hf);letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:0 0 16px}
-h2{font-size:clamp(32px,5vw,52px);line-height:1.04;max-width:760px}
-.sub{color:var(--muted);font-size:18px;max-width:640px;margin:18px 0 0}
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
-@media (max-width:860px){.grid3{grid-template-columns:1fr}}
-.card{position:relative;background:var(--card);border:1px solid var(--edge);border-radius:var(--r);padding:28px 24px 26px}
-.card h3{font-size:22px;margin:18px 0 10px}
-.card p{margin:0;color:var(--muted)}
-.ico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:rgba(245,184,0,.08);border:1px solid var(--edge-gold)}
-.tag{display:inline-block;font:600 11px/1 var(--hf);letter-spacing:.06em;text-transform:uppercase;padding:5px 9px;border-radius:999px}
-.tag.live{background:var(--gold);color:#000}
-.tag.soon{border:1px solid #4a4840;color:var(--muted)}
-.card .tag{position:absolute;top:24px;right:22px}
-.history{margin:40px 0 0;padding:22px 24px;border-left:2px solid var(--gold);background:linear-gradient(90deg,rgba(245,184,0,.07),transparent);border-radius:0 12px 12px 0;color:var(--muted);max-width:760px}
-.history b{color:var(--ink);font-weight:500}
-
-.split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
-@media (max-width:860px){.split{grid-template-columns:1fr;gap:36px}}
-.example{font:500 11px/1 var(--hf);letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
-.points{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:14px}
-.points li{display:grid;grid-template-columns:20px 1fr;gap:10px;color:var(--muted)}
-.points li b{color:var(--ink);font-weight:500}
-.dot{width:8px;height:8px;border-radius:50%;background:var(--gold);margin-top:9px}
-
-@media (max-width:560px){.addr{grid-template-columns:1fr}.addr .who{border-right:0;border-bottom:1px solid var(--edge);padding:20px}}
-
-.status{list-style:none;padding:0;margin:40px 0 0;max-width:820px;border-top:1px solid var(--edge)}
-.status li{display:grid;grid-template-columns:84px 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--edge);align-items:start}
-.status li .tag{justify-self:start;margin-top:4px}
-.status li p{margin:0;color:var(--muted)}
-.status li p b{color:var(--ink);font-weight:500}
-
-.get{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:40px}
-@media (max-width:980px){.get{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:420px){.get{grid-template-columns:1fr}}
-.get a{display:block;padding:22px 20px;background:var(--card);border:1px solid var(--edge);border-radius:16px;text-decoration:none;color:var(--ink);transition:border-color .16s,transform .16s var(--ease)}
-.get a:hover{border-color:var(--edge-gold);transform:translateY(-2px)}
-.get b{display:block;font:600 18px/1.2 var(--hf)}
-.get span{display:block;color:var(--dim);font-size:14px;margin-top:6px}
-.also{margin-top:20px;color:var(--dim);font-size:14px}
-
-footer{border-top:1px solid #121317;padding:40px 0 56px;color:var(--dim);font-size:14px}
-.foot{display:flex;flex-wrap:wrap;gap:16px 28px;justify-content:space-between;align-items:center}
-.foot nav{display:flex;flex-wrap:wrap;gap:18px}
-.foot nav a{color:var(--muted);text-decoration:none}
-.foot nav a:hover{color:var(--ink)}
 .bwx-strip{background:#0a0a0b;border-bottom:1px solid rgba(255,210,77,.16);font:500 13px/1 'IBM Plex Sans',system-ui,-apple-system,sans-serif}
 .bwx-strip a{display:flex;align-items:center;justify-content:center;gap:8px;min-height:36px;padding:0 16px;color:#cfcabd;text-decoration:none;letter-spacing:.01em}
 .bwx-strip svg{width:12px;height:16px;flex:none;display:block}
@@ -128,83 +53,137 @@ footer{border-top:1px solid #121317;padding:40px 0 56px;color:var(--dim);font-si
 .bwx-strip a:hover{color:#f4f1e8}
 .bwx-strip a:hover .bwx-go{color:#ffd24d;transform:translateX(2px)}
 .bwx-strip a:focus-visible{outline:2px solid #ffd24d;outline-offset:-4px;border-radius:8px}
-@media (prefers-reduced-motion:reduce){.bwx-strip .bwx-go{transition:none}}
 
-.status li .where{display:block;font-size:13px;color:var(--dim);margin-top:4px}
-.slip{position:relative;justify-self:center;width:100%;max-width:440px;background:var(--card);border:1px solid var(--edge);border-radius:22px;padding:24px;box-shadow:0 40px 80px -40px rgba(245,184,0,.35)}
-.slip::before{content:"";position:absolute;inset:-12% 0;z-index:-1;background:radial-gradient(closest-side,rgba(245,184,0,.18),transparent 70%)}
-.slip-h{display:flex;justify-content:space-between;align-items:center;font:600 14px/1 var(--hf);color:var(--muted)}
-.example{font:500 11px/1 var(--hf);letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
-.slip-who{display:flex;gap:14px;align-items:center;margin:22px 0 18px}
-.av{width:48px;height:48px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ffe58a,#c98f00);display:grid;place-items:center;font:700 18px/1 var(--hf);color:#000;flex:none}
-.slip-who b{display:block;font:600 18px/1.25 var(--hf)}
-.slip-who small{color:var(--dim);font-size:14px;overflow-wrap:anywhere}
-.ln{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-top:1px solid #1a1b20;font-size:15px;color:var(--muted)}
-.ln span:last-child{color:var(--ink);text-align:right}
-.ln.tot{font:600 18px/1.2 var(--hf);color:var(--ink)}
-.ln.tot span:last-child{color:var(--gold-hi)}
-.seal{display:flex;align-items:center;gap:10px;margin-top:14px;padding:12px 14px;border-radius:12px;background:rgba(245,184,0,.07);border:1px solid var(--edge-gold);font-size:14px;color:var(--muted)}
-.mission{margin:40px 0 0;padding:22px 24px;border-left:2px solid var(--gold);background:linear-gradient(90deg,rgba(245,184,0,.07),transparent);border-radius:0 12px 12px 0;color:var(--muted);max-width:760px}
-.mission b{color:var(--ink);font-weight:500}
-.story{background:var(--card);border:1px solid var(--edge);border-radius:var(--r);overflow:hidden}
-.story-h{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-bottom:1px solid var(--edge);font:600 14px/1 var(--hf);color:var(--muted)}
-.story-b{padding:20px 18px}
-.story-b .src{font:600 12px/1 var(--hf);letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
-.story-b h3{font-size:22px;line-height:1.2;margin:10px 0 12px}
-.story-b p{margin:0;color:var(--muted);font-size:15px}
-.cm{display:grid;grid-template-columns:32px 1fr;gap:10px;padding:12px 18px;border-top:1px solid #16171b;font-size:14px;color:var(--muted)}
-.cm .av{width:32px;height:32px;font-size:13px}
-.cm b{color:var(--ink);font-weight:500}
-.unlock{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 18px;border-top:1px solid var(--edge);background:rgba(245,184,0,.05);font:600 15px/1.2 var(--hf)}
-.hero .story{max-width:460px;width:100%;justify-self:center}
-.unlock span:last-child{color:var(--gold-hi);white-space:nowrap}
-/* hero animation: one CSS sequence (arrive, staged reveal, pop), base styles = final state */
-html,body{overflow-x:clip}.hero{overflow-x:clip}
-.stage{position:relative;justify-self:center;width:100%;max-width:420px}
-.stage::before{content:"";position:absolute;inset:-8% -10%;z-index:-1;background:radial-gradient(closest-side at 40% 35%,rgba(245,184,0,.2),transparent 70%)}
-.stage.wait,.stage.wait *{animation-play-state:paused!important}
-.dev{position:relative;background:#08080a;border:1px solid var(--edge);border-radius:30px;padding:22px 20px 20px;box-shadow:0 40px 90px -40px rgba(245,184,0,.45);animation:arrive 1s var(--ease) both}
-.sh{display:flex;justify-content:space-between;align-items:center;gap:12px;font:600 14px/1.2 var(--hf);color:var(--muted)}
-.chips{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-top:18px}
-.chip{padding:7px 12px;border-radius:999px;background:rgba(245,184,0,.12);color:var(--gold-hi);font:600 12px/1 var(--hf);white-space:nowrap;animation:pop .45s var(--ease) 2.4s both}
-.chip+.chip{animation-delay:2.55s}
-@keyframes arrive{from{opacity:0;transform:translateY(18px) scale(.97)}}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{display:flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none;font:700 21px/1 var(--hf);letter-spacing:-.02em}
+.brand img{display:block}
+.nav-links{display:flex;gap:22px;align-items:center}
+.nav-links a:not(.btn){color:var(--muted);text-decoration:none;font-size:15px}
+.nav-links a:not(.btn):hover{color:var(--ink)}
+@media (max-width:720px){.nav-links .hide-s{display:none}}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:0 22px;border-radius:999px;font:600 16px/1 var(--hf);text-decoration:none;transition:transform .16s var(--ease),box-shadow .16s var(--ease),border-color .16s}
+.btn-gold{background:var(--grad);color:#000;box-shadow:0 0 0 1px rgba(255,210,77,.35),0 10px 30px -10px rgba(245,184,0,.6),inset 0 1px 0 rgba(255,255,255,.5)}
+.btn-gold:hover{transform:translateY(-1px);box-shadow:0 0 0 1px rgba(255,210,77,.5),0 14px 36px -10px rgba(245,184,0,.75),inset 0 1px 0 rgba(255,255,255,.5)}
+.btn-gold:active{transform:none}
+.btn-ghost{color:var(--ink);border:1px solid var(--edge)}
+.btn-ghost:hover{border-color:var(--edge-gold)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.08fr .92fr;gap:56px;align-items:center;padding:56px 16px 96px}
+.preview{display:inline-flex;align-items:center;gap:10px;margin:0 0 24px;padding:7px 14px 7px 10px;border-radius:999px;border:1px solid var(--edge-gold);background:rgba(245,184,0,.06);font:600 12px/1 var(--hf);letter-spacing:.12em;text-transform:uppercase;color:var(--gold-hi)}
+.preview i{width:8px;height:8px;border-radius:50%;background:var(--gold-hi);box-shadow:0 0 0 4px rgba(255,210,77,.14)}
+.hero h1{font-size:clamp(54px,8.6vw,100px);line-height:.95;letter-spacing:-.045em}
+.hero h1 span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lede{font-size:19px;color:var(--muted);max-width:540px;margin:26px 0 32px}
+.lede b{color:var(--ink);font-weight:500}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+.hint{margin:20px 0 0;font-size:14px;color:var(--dim);max-width:520px}
+@media (max-width:900px){.hero{grid-template-columns:1fr;gap:40px;padding:28px 16px 72px}}
+
+/* hero illustration: one bstore race, drawn, not live */
+.stage{position:relative;justify-self:center;width:100%;max-width:440px}
+.stage::before{content:"";position:absolute;inset:-10% -12%;z-index:-1;background:radial-gradient(closest-side at 45% 40%,rgba(245,184,0,.18),transparent 70%)}
+.race{background:#08080a;border:1px solid var(--edge);border-radius:28px;padding:22px 20px 20px;box-shadow:0 40px 90px -40px rgba(245,184,0,.45)}
+.race-h{display:flex;justify-content:space-between;align-items:center;gap:12px;font:600 14px/1.2 var(--hf);color:var(--muted)}
+.ill{font:500 11px/1 var(--hf);letter-spacing:.1em;text-transform:uppercase;color:var(--dim);border:1px solid #2a2c33;border-radius:999px;padding:5px 9px}
+.obj{display:flex;gap:14px;align-items:center;margin-top:18px;padding:14px;border-radius:16px;background:linear-gradient(160deg,#16130a,#0d0e11 70%);border:1px solid var(--edge-gold)}
+.obj-i{width:40px;height:44px;flex:none;border-radius:8px;display:grid;place-items:center;background:rgba(245,184,0,.1);border:1px solid var(--edge-gold)}
+.obj b{display:block;font:500 14px/1.3 var(--mf);color:var(--ink)}
+.obj small{display:block;color:var(--dim);font-size:13px;margin-top:2px}
+.lanes{position:relative;margin:6px 0 0 33px;padding:12px 0 2px 21px;border-left:1px dashed rgba(255,210,77,.3)}
+.lane{position:relative;display:grid;grid-template-columns:1fr auto;align-items:center;gap:10px;padding:11px 12px;margin-top:8px;border-radius:12px;background:#111216;border:1px solid var(--edge)}
+.lane::before{content:"";position:absolute;left:-22px;top:50%;width:21px;border-top:1px dashed rgba(255,210,77,.3)}
+.lane b{font:600 14px/1.2 var(--hf)}
+.lane small{display:block;color:var(--dim);font-size:12px;margin-top:3px}
+.st{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;font:600 12px/1 var(--hf);white-space:nowrap}
+.st.ok{background:rgba(245,184,0,.12);color:var(--gold-hi)}
+.st.wait{border:1px solid #2a2c33;color:var(--muted)}
+.st.wait i{width:6px;height:6px;border-radius:50%;background:var(--muted)}
+.pay{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:16px;padding:14px 16px;border-radius:14px;background:var(--grad);color:#000;font:600 14px/1.25 var(--hf)}
+.pay small{display:block;font:500 12px/1.3 var(--bf);opacity:.78}
+.cap{margin:14px 4px 0;font-size:12.5px;line-height:1.5;color:var(--dim);text-align:center}
+@keyframes arrive{from{opacity:0;transform:translateY(16px) scale(.98)}}
 @keyframes up{from{opacity:0;transform:translateY(8px)}}
-@keyframes pop{from{opacity:0;transform:translateY(8px) scale(.85)}}
-@keyframes slide{from{opacity:0;transform:translateX(-24px)}}
-@keyframes fade{from{opacity:0}}
-@keyframes pulse{50%{opacity:.35}}
-.shelf{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px;padding-bottom:12px;border-bottom:2px solid rgba(255,210,77,.22)}
-.pc{display:flex;flex-direction:column;border-radius:14px;background:#111216;border:1px solid var(--edge);overflow:hidden;animation:pop .5s var(--ease) both}
-.pc:nth-child(1){animation-delay:.5s}.pc:nth-child(2){animation-delay:.65s}.pc:nth-child(3){animation-delay:.8s}
-.art{height:78px;display:grid;place-items:center;font:700 18px/1 var(--hf);letter-spacing:-.02em}
-.a1{background:radial-gradient(circle at 30% 25%,#ff5fa8,#7a0f45 70%);color:#fff}
-.a2{background:radial-gradient(circle at 30% 25%,#ff5a4f,#5c0a0a 70%);color:#fff}
-.a3{background:radial-gradient(circle at 30% 25%,#9d7bff,#1d1240 70%);color:#fff}
-.pc b{padding:8px 8px 0;font:600 12px/1.2 var(--hf)}
-.pc small{padding:2px 8px 8px;color:var(--dim);font-size:10px}
-.buy{position:relative;margin:0 8px 8px;height:28px;border-radius:999px;display:grid;place-items:center;font:700 11px/1 var(--hf);color:#000;background:var(--grad)}
-.buy span{grid-area:1/1}
-.pc.on .buy{animation:press .3s ease 1.75s both}
-.pc.on .buy .b1{opacity:0;animation:out .2s 2s both}
-.pc.on .buy .b2{animation:fade .25s 2.05s both}
-.pc:not(.on) .buy{background:rgba(245,184,0,.12);color:var(--gold-hi)}
-.tap{position:absolute;left:50%;top:50%;width:26px;height:26px;margin:-13px 0 0 -13px;border-radius:50%;border:2px solid #fff;opacity:0;animation:tap .6s ease-out 1.6s both}
-.rcpt{position:relative;margin-top:16px;padding:16px;border-radius:16px;background:linear-gradient(160deg,#16130a,#0d0e11 65%);border:1px solid var(--edge-gold);animation:rise .7s var(--ease) 2.25s both}
-.rc-h{display:flex;justify-content:space-between;align-items:center;font:600 13px/1 var(--hf);color:var(--muted)}
-.rc-h b{color:var(--gold-hi)}
-.rc-who{display:flex;gap:12px;align-items:center;margin:12px 0 8px}
-.rc-who i{width:40px;height:40px;border-radius:10px;flex:none;background:radial-gradient(circle at 30% 25%,#ff5fa8,#7a0f45 70%)}
-.rc-who b{display:block;font:600 15px/1.2 var(--hf)}.rc-who small{color:var(--dim);font-size:12px}
-.rl{display:flex;justify-content:space-between;padding:8px 0;border-top:1px solid #1a1b20;font-size:13px;color:var(--muted)}
-.rl span:last-child{color:var(--ink)}.rl.t{font:600 15px/1.2 var(--hf);color:var(--ink)}.rl.t span:last-child{color:var(--gold-hi)}
-.sig{display:inline-block;width:7px;height:7px;margin-right:6px;border-radius:50%;background:#ffd24d;vertical-align:1px;animation:pulse 2.4s ease-in-out 3.4s infinite}
-@keyframes press{50%{transform:scale(.9)}}
-@keyframes out{from{opacity:1}to{opacity:0}}
-@keyframes tap{0%{opacity:.9;transform:scale(.4)}100%{opacity:0;transform:scale(1.8)}}
-@keyframes rise{from{opacity:0;transform:translateY(40px)}}
-@media (max-width:420px){.dev{padding:20px 14px 16px}.shelf{gap:7px}.art{height:64px;font-size:15px}.pc b{font-size:11px}.buy{font-size:10px;margin:0 6px 6px}}
-@media (prefers-reduced-motion:reduce){.stage *{animation:none!important}.tap{display:none}.pc.on .buy .b1{opacity:0}}
+@keyframes pop{from{opacity:0;transform:scale(.85)}}
+@keyframes blink{50%{opacity:.3}}
+.race{animation:arrive .8s var(--ease) both}
+.lane{animation:up .5s var(--ease) both}
+.lane:nth-child(1){animation-delay:.5s}.lane:nth-child(2){animation-delay:.65s}.lane:nth-child(3){animation-delay:.8s}
+.lane .st.ok{animation:pop .35s var(--ease) both}
+.lane:nth-child(1) .st.ok{animation-delay:1.4s}.lane:nth-child(2) .st.ok{animation-delay:1.7s}
+.st.wait i{animation:blink 1.6s ease-in-out 1s infinite}
+.pay{animation:up .55s var(--ease) 2.1s both}
+@media (max-width:420px){.race{padding:18px 14px 16px}.lanes{margin-left:24px;padding-left:16px}.lane::before{left:-17px;width:16px}.lane small{font-size:11.5px}}
+
+/* sections */
+section{padding:96px 0;border-top:1px solid #121317}
+.kicker{font:500 13px/1 var(--hf);letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:0 0 16px}
+h2{font-size:clamp(32px,5vw,52px);line-height:1.04;max-width:780px}
+.sub{color:var(--muted);font-size:18px;max-width:660px;margin:18px 0 0}
+@media (max-width:640px){section{padding:72px 0}}
+
+.steps{list-style:none;padding:0;margin:48px 0 0;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--edge)}
+.steps li{padding:28px 24px 8px 0}
+.steps li+li{padding-left:24px;border-left:1px solid var(--edge)}
+.num{font:500 13px/1 var(--mf);color:var(--gold)}
+.steps h3{font-size:21px;line-height:1.2;margin:16px 0 10px}
+.steps p{margin:0;color:var(--muted);font-size:15.5px}
+@media (max-width:980px){.steps{grid-template-columns:1fr 1fr}.steps li:nth-child(3){padding-left:0;border-left:0}.steps li:nth-child(n+3){border-top:1px solid var(--edge)}}
+@media (max-width:600px){.steps{grid-template-columns:1fr}.steps li,.steps li+li{padding:24px 0 20px;border-left:0}.steps li+li{border-top:1px solid var(--edge)}}
+
+.note{margin:48px 0 0;padding:22px 24px;border-left:2px solid var(--gold);background:linear-gradient(90deg,rgba(245,184,0,.07),transparent);border-radius:0 12px 12px 0;color:var(--muted);max-width:820px}
+.note b{color:var(--ink);font-weight:500}
+.note p{margin:0}.note p+p{margin-top:12px}
+
+.nets{display:grid;grid-template-columns:1.35fr 1fr;gap:16px;margin-top:48px}
+@media (max-width:860px){.nets{grid-template-columns:1fr}}
+.net{position:relative;background:var(--card);border:1px solid var(--edge);border-radius:var(--r);padding:28px 26px 26px}
+.net-h{display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px}
+.net-h h3{font:600 28px/1 var(--mf);letter-spacing:-.02em}
+.tag{display:inline-block;font:600 11px/1 var(--hf);letter-spacing:.06em;text-transform:uppercase;padding:5px 9px;border-radius:999px}
+.tag.exp{border:1px solid var(--edge-gold);color:var(--gold-hi)}
+.tag.soon{border:1px solid #4a4840;color:var(--muted)}
+.net blockquote{margin:18px 0 0;padding:0;font-size:17px;line-height:1.5;color:var(--ink)}
+.net .by{margin:6px 0 0;font-size:13px;color:var(--dim)}
+.facts{list-style:none;padding:0;margin:22px 0 0;border-top:1px solid var(--edge)}
+.facts li{display:grid;grid-template-columns:120px 1fr;gap:14px;padding:12px 0;border-bottom:1px solid var(--edge);font-size:15px;color:var(--muted)}
+.facts li span:first-child{color:var(--dim);font-size:13px;letter-spacing:.04em;text-transform:uppercase;padding-top:2px}
+@media (max-width:420px){.facts li{grid-template-columns:1fr;gap:2px}}
+.credit{margin:20px 0 0;font-size:15px;color:var(--muted)}
+.credit b{color:var(--ink);font-weight:500}
+.sep{margin:12px 0 0;font-size:14px;color:var(--dim)}
+.slot{display:flex;flex-direction:column;justify-content:center;gap:10px;border:1px dashed #34363d;border-radius:var(--r);padding:28px 26px;color:var(--muted)}
+.slot h3{font-size:22px;color:var(--ink)}
+.slot p{margin:0}
+
+.cta-band{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:end}
+@media (max-width:860px){.cta-band{grid-template-columns:1fr;gap:28px}}
+.mail{font:500 15px/1 var(--mf)}
+.small{margin:14px 0 0;font-size:14px;color:var(--dim)}
+
+.fam{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:48px}
+@media (max-width:760px){.fam{grid-template-columns:1fr}}
+.fam a{display:block;padding:26px 24px;background:var(--card);border:1px solid var(--edge);border-radius:var(--r);text-decoration:none;color:var(--ink);transition:border-color .16s,transform .16s var(--ease)}
+.fam a:hover{border-color:var(--edge-gold);transform:translateY(-2px)}
+.fam .k{font:500 12px/1 var(--hf);letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+.fam b{display:block;font:600 24px/1.2 var(--hf);margin:14px 0 8px;letter-spacing:-.02em}
+.fam span.d{display:block;color:var(--muted);font-size:15px}
+.fam .go{display:inline-block;margin-top:16px;color:var(--gold-hi);font:600 14px/1 var(--hf)}
+.also{margin:20px 0 0;color:var(--dim);font-size:14px}
+
+footer{border-top:1px solid #121317;padding:40px 0 56px;color:var(--dim);font-size:14px}
+.foot{display:flex;flex-wrap:wrap;gap:16px 28px;justify-content:space-between;align-items:center}
+.foot nav{display:flex;flex-wrap:wrap;gap:18px}
+.foot nav a{color:var(--muted);text-decoration:none}
+.foot nav a:hover{color:var(--ink)}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .bwx-strip .bwx-go{transition:none}
+  .stage *{animation:none!important}
+  .btn,.fam a{transition:none}
+}
 </style>
 </head>
 <body>
@@ -213,7 +192,8 @@ html,body{overflow-x:clip}.hero{overflow-x:clip}
   <a class="brand" href="/" aria-label="bStoreX home"><img src="/logo.svg" alt="" width="22" height="30"><span>bStore<span class="gold">X</span></span></a>
   <nav class="nav-links" aria-label="Main">
     <a class="hide-s" href="#how">How it works</a>
-    <a class="hide-s" href="#status">Status</a>
+    <a class="hide-s" href="#networks">Networks</a>
+    <a class="hide-s" href="#providers">For providers</a>
     <span data-bwx-connect></span>
   </nav>
 </header>
@@ -221,100 +201,104 @@ html,body{overflow-x:clip}.hero{overflow-x:clip}
 <main>
 <div class="wrap hero">
   <div>
-    <p class="eyebrow">bStoreX · built on bWalletX</p>
-    <h1>Pick it.<br>Pay once.<br><span>Keep it.</span></h1>
-    <p class="lede">The bWalletX Store on the web. Themes, emoji themes and, soon, Editions and shops run by creators, paid for in Bitcoin with one tap, with a signed receipt the buyer keeps.</p>
+    <p class="preview"><i aria-hidden="true"></i>Preview · coming soon</p>
+    <h1>The storage<br><span>market.</span></h1>
+    <p class="lede">Put your files with whichever storage provider suits you. Compare them in one place, pay from your wallet in Bitcoin, and get proof the bytes are held.</p>
     <div class="ctas">
-      <a class="btn btn-gold" href="https://bwalletx.com/get">Get bWalletX</a>
-      <a class="btn btn-ghost" href="#status">What works today</a>
-      <a class="btn btn-ghost" href="https://www.bchatx.com/s/bstore">Open the bStore Room</a>
+      <a class="btn btn-gold" href="#how">See how it works</a>
+      <a class="btn btn-ghost" href="#providers">List your storage</a>
     </div>
-    <p class="hint">Themes already sell in the bWalletX Store, at <span class="ink">$1</span> each. Looking for storage? That's <a href="https://bdrivex.com">bDriveX</a>.</p>
+    <p class="hint"><span class="ink">Nothing is live yet.</span> There are no providers listed and nothing to sign up for. For your own files today, use <a href="https://bdrivex.com">bDriveX</a>.</p>
   </div>
 
-  <div class="stage" role="img" aria-label="The bWalletX Store shelf: NPG, NPGX and VexVoid themes at $1 each. The NPG theme is bought with one tap, and a signed receipt slides into the buyer's wallet.">
-    <div class="dev">
-      <div class="sh"><span>Store › Themes</span><span class="example">$1 each</span></div>
-      <div class="shelf">
-        <div class="pc on"><div class="art a1">NPG</div><b>NPG theme</b><small>Ninja Punk Girls</small><div class="buy"><span class="b1">Buy · $1</span><span class="b2">&#10003; Owned</span><i class="tap" aria-hidden="true"></i></div></div>
-        <div class="pc"><div class="art a2">NPGX</div><b>NPGX theme</b><small>Themes</small><div class="buy"><span>Buy · $1</span></div></div>
-        <div class="pc"><div class="art a3">V</div><b>VexVoid theme</b><small>Themes</small><div class="buy"><span>Buy · $1</span></div></div>
+  <figure class="stage" style="margin:0" role="img" aria-label="Illustration of one bstore race: a file is published once with a bounty, providers A and B hold it and pass a proof, provider C is still being checked, and the writer pays only the providers that passed.">
+    <div class="race">
+      <div class="race-h"><span>One file, held and proven</span><span class="ill">Illustration</span></div>
+      <div class="obj">
+        <div class="obj-i"><svg width="18" height="22" viewBox="0 0 18 22" fill="none" stroke="#ffd24d" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M1 1h10l6 6v14H1z"/><path d="M11 1v6h6"/></svg></div>
+        <div><b>photos/cat.jpg</b><small>Published once, with a bounty for holding it</small></div>
       </div>
-      <div class="rcpt">
-        <div class="rc-h"><span>Receipt</span><b><span class="sig" aria-hidden="true"></span>Signed</b></div>
-        <div class="rc-who"><i></i><div><b>NPG theme</b><small>Ninja Punk Girls · Themes</small></div></div>
-        <div class="rl"><span>Paid with</span><span>BSV, one approval</span></div>
-        <div class="rl"><span>Kept in</span><span>Your wallet</span></div>
-        <div class="rl t"><span>Price</span><span>$1</span></div>
+      <div class="lanes">
+        <div class="lane"><div><b>Provider A</b><small>Holds it · sampled check</small></div><span class="st ok">&#10003; Proof passed</span></div>
+        <div class="lane"><div><b>Provider B</b><small>Holds it · sampled check</small></div><span class="st ok">&#10003; Proof passed</span></div>
+        <div class="lane"><div><b>Provider C</b><small>Holds it · being checked</small></div><span class="st wait"><i aria-hidden="true"></i>Checking</span></div>
       </div>
-      <div class="chips"><span class="chip">&#10003; Yours to keep</span><span class="chip">Receipt saved on chain</span></div>
+      <div class="pay"><div>Paid after the proof<small>From your own wallet, to the providers that passed</small></div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div>
     </div>
-  </div>
+    <figcaption class="cap">How a race works on bstore. Not a live listing.</figcaption>
+  </figure>
 </div>
 
 <section id="how">
   <div class="wrap">
     <p class="kicker">How it works</p>
-    <h2>A <span class="gold">store</span> inside your wallet.</h2>
-    <p class="sub">Think of an app store that lives in your wallet. A maker puts something up once. People pay to own it, and the money goes to whoever made it.</p>
-    <div class="grid3">
-      <article class="card">
-        <span class="tag live">Live</span>
-        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffd24d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h16l-1.5 11h-13z"/><path d="M8 9V7a4 4 0 0 1 8 0v2"/></svg></div>
-        <h3>Buy with one tap</h3>
-        <p>Open Exchange › Store in bWalletX. One sheet shows the price, you tap Allow, and it's yours, with a signed receipt in your NFTs.</p>
-      </article>
-      <article class="card">
-        <span class="tag live">Live</span>
-        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffd24d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m3 16 5-5 4 4 3-3 6 6"/><circle cx="15.5" cy="8.5" r="1.5"/></svg></div>
-        <h3>Put your work on chain</h3>
-        <p>Mint a picture, a song or a video as an NFT from bWalletX. It lives on Bitcoin, in your wallet, and you can send it to anyone's name.</p>
-      </article>
-      <article class="card">
-        <span class="tag soon">Coming</span>
-        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffd24d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg></div>
-        <h3>Your own shop</h3>
-        <p>Open a shop in the Store, sell your themes, art, music and files, and get 80% of each sale straight to your wallet in BSV.</p>
-      </article>
+    <h2>You pay after the <span class="gold">proof</span>, not before.</h2>
+    <p class="sub">This is how bstore, the first network we plan to list, works today in its own software. bStoreX will be the front door: one place to find providers, compare their terms and pay from your wallet.</p>
+    <ol class="steps">
+      <li><span class="num">01</span><h3>Put it once</h3><p>You publish a file once and name a bounty for holding it. The providers serving your bucket receive it, and each decides whether to hold it.</p></li>
+      <li><span class="num">02</span><h3>Providers prove they hold it</h3><p>A provider that holds the file says so on the BSV blockchain, then has to pass a challenge: your own client samples small pieces of the file and checks each one against the file's proof root.</p></li>
+      <li><span class="num">03</span><h3>You pay after the proof</h3><p>The first providers to pass are paid by your own transaction, split by rank. You choose how many providers you pay. Nothing is paid for a promise.</p></li>
+      <li><span class="num">04</span><h3>Your S3 tools work</h3><p>bstore's gateway speaks S3, so the AWS CLI, the SDKs and most S3 clients need only an endpoint and keys.</p></li>
+    </ol>
+    <div class="note">
+      <p><b>When you read a file back,</b> every piece is checked against its hash, and the file is written whole or not at all. Anyone can buy a fresh proof, or more time for a file, whenever they like.</p>
+      <p><b>The limits, in bstore's own words:</b> availability is a market outcome, and enforcement is reputation in this version. A challenge checks a sample, not every byte, so a larger sample is more likely to catch missing data. <a href="https://github.com/lightwebinc/bstore/blob/main/docs/limits.md">Read bstore's limits</a></p>
     </div>
-    <p class="mission">The idea is simple: <b>anything digital can be sold in one place, and the person who made it gets paid directly.</b> We add each piece below only when it works. Keeping files and recordings now has its own home: <a href="https://bdrivex.com">bDriveX</a>.</p>
   </div>
 </section>
 
-<section id="status">
+<section id="networks">
   <div class="wrap">
-    <p class="kicker">Status</p>
-    <h2>What works today, and what's next.</h2>
-    <p class="sub">Items move to Live when you can use them. We tick them off as they ship.</p>
-    <ul class="status">
-      <li><span class="tag live">Live</span><p><b>The Store in bWalletX.</b> Exchange › Store, with shops and departments. <span class="where">Shown on <a href="https://bwalletx.com/store">bwalletx.com/store</a></span></p></li>
-      <li><span class="tag live">Live</span><p><b>Themes for sale.</b> NPG, NPGX and VexVoid themes, $1 each, paid in BSV with one approval and yours to keep. <span class="where"><a href="https://bwalletx.com/store">bwalletx.com/store</a></span></p></li>
-      <li><span class="tag live">Live</span><p><b>Signed receipts.</b> Each Store purchase saves a signed receipt in your wallet's NFTs, in the same payment. <span class="where"><a href="https://bwalletx.com/store">bwalletx.com/store</a></span></p></li>
-      <li><span class="tag live">Live</span><p><b>Mint NFTs.</b> Pictures, music and video, saved on Bitcoin as 1Sat Ordinals from inside bWalletX. <span class="where"><a href="https://bwalletx.com/features">bwalletx.com/features</a></span></p></li>
-      <li><span class="tag live">Live</span><p><b>Your NFTs in one place,</b> including RelayX cards found from your 12 words. <span class="where"><a href="https://bwalletx.com/store">bwalletx.com/store</a></span></p></li>
-      <li><span class="tag live">Live</span><p><b>Emoji themes.</b> Twelve emoji themes, $1 each in BSV, in bWalletX 5.2.33. <span class="where"><a href="https://bwalletx.com/themes#emoji">bwalletx.com/themes</a></span></p></li>
-      <li><span class="tag soon">Coming</span><p><b>Your own shop</b> in the Store, opened after b has looked it over, with 80% of each sale paid to your wallet.</p></li>
-      <li><span class="tag soon">Coming</span><p><b>Sell any file:</b> music, video, art, books and downloads.</p></li>
-      <li><span class="tag soon">Coming</span><p><b>Pay-per-download delivery,</b> where buyers pay for each download and the seller is paid directly.</p></li>
-      <li><span class="tag soon">Coming</span><p><b>Editions:</b> limited, numbered theme editions at $99.</p></li>
-      <li><span class="tag soon">Coming</span><p><b>More theme packs</b> from creators.</p></li>
-    </ul>
+    <p class="kicker">Networks</p>
+    <h2>The first network: bstore.</h2>
+    <p class="sub">Each network on bStoreX will have its own providers, terms and way of proving what it holds. We start with one, and plan to add more.</p>
+    <div class="nets">
+      <article class="net">
+        <div class="net-h"><h3>bstore</h3><span class="tag exp">Experimental</span><span class="tag soon">Not listed yet</span></div>
+        <blockquote>&ldquo;Object storage as a market on Bitcoin: providers race for a bounty to hold an object, and readers prove every byte, with an S3 gateway.&rdquo;</blockquote>
+        <p class="by">The project's own description</p>
+        <ul class="facts">
+          <li><span>Proof</span><span>Sampled challenges, checked by the writer's own client</span></li>
+          <li><span>Payment</span><span>From the writer's own transaction, after a passed challenge</span></li>
+          <li><span>Access</span><span>Its own command line, or S3 through its gateway</span></li>
+          <li><span>Providers</span><span>None public yet, so none listed here</span></li>
+        </ul>
+        <p class="credit"><b>bstore is open-source software by Lightweb Inc. (Apache-2.0).</b> <a href="https://github.com/lightwebinc/bstore">github.com/lightwebinc/bstore</a></p>
+        <p class="sep">bStoreX is a separate service from The Bitcoin Corporation Ltd. It isn't made by Lightweb Inc.</p>
+      </article>
+      <div class="slot">
+        <span class="tag soon" style="align-self:flex-start">Coming</span>
+        <h3>More providers coming</h3>
+        <p>Other storage networks and services will sit alongside bstore, so you can compare them side by side.</p>
+        <p><a href="#providers">Run one? Tell us</a></p>
+      </div>
+    </div>
   </div>
 </section>
 
-<section id="get">
-  <div class="wrap">
-    <p class="kicker">Start here</p>
-    <h2>Open the Store in your wallet.</h2>
-    <p class="sub">bStoreX runs on bWalletX. Get the wallet, then go to Exchange › Store.</p>
-    <div class="get">
-      <a href="https://web.bwalletx.com"><b>Web</b><span>Open in your browser</span></a>
-      <a href="https://bwalletx.com/iphone"><b>iPhone</b><span>Web app or TestFlight</span></a>
-      <a href="https://bwalletx.com/android"><b>Android</b><span>APK or Play testing</span></a>
-      <a href="https://desktop.bwalletx.com"><b>Desktop</b><span>The full-screen wallet</span></a>
-      <a href="https://bwalletx.com/extension"><b>Chrome</b><span>Browser extension</span></a>
+<section id="providers">
+  <div class="wrap cta-band">
+    <div>
+      <p class="kicker">For providers</p>
+      <h2>List your storage network or service.</h2>
+      <p class="sub">If you run a storage network, or a storage service built on one, and you'd like it listed when bStoreX opens, write to us. Tell us what you run and how people pay for it.</p>
     </div>
-    <p class="also">All downloads: <a href="https://bwalletx.com/get">bwalletx.com/get</a></p>
+    <div>
+      <a class="btn btn-gold" href="mailto:support@bwalletx.com?subject=bStoreX%20listing">Email us</a>
+      <p class="small">Or write to <a class="mail" href="mailto:support@bwalletx.com?subject=bStoreX%20listing">support@bwalletx.com</a></p>
+    </div>
+  </div>
+</section>
+
+<section id="family">
+  <div class="wrap">
+    <p class="kicker">Elsewhere in the family</p>
+    <h2>Looking for something else?</h2>
+    <div class="fam">
+      <a href="https://bdrivex.com"><span class="k">bDriveX</span><b>For your own files, use bDriveX.</b><span class="d">Your files, encrypted on your device.</span><span class="go">bdrivex.com &rarr;</span></a>
+      <a href="https://bwalletx.com/get"><span class="k">bWalletX</span><b>The wallet bStoreX will pay from.</b><span class="d">On the web, iPhone, Android, desktop and Chrome.</span><span class="go">bwalletx.com/get &rarr;</span></a>
+    </div>
+    <p class="also">Wallet themes now live in the bWalletX Store inside the wallet: <a href="https://bwalletx.com">bwalletx.com</a></p>
   </div>
 </section>
 </main>
@@ -323,7 +307,6 @@ html,body{overflow-x:clip}.hero{overflow-x:clip}
   <div class="wrap foot">
     <a class="brand" href="/"><img src="/logo.svg" alt="" width="18" height="24"><span>bStore<span class="gold">X</span></span></a>
     <nav aria-label="Footer">
-      <a href="https://www.bchatx.com/s/bstore">The bStore Room</a>
       <a href="https://bwalletx.com">bWalletX home</a>
       <a href="https://bdrivex.com">bDriveX</a>
       <a href="https://bwalletx.com/privacy">Privacy</a>
@@ -332,14 +315,6 @@ html,body{overflow-x:clip}.hero{overflow-x:clip}
     <span>By The Bitcoin Corporation Ltd.</span>
   </div>
 </footer>
-<script>
-(function(){var st=document.querySelector('.stage');if(!st||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-var cs=st.querySelectorAll('[data-to]');cs.forEach(function(el){el.textContent=(0).toFixed(+el.dataset.dp||0)});st.classList.add('wait');
-function go(){st.classList.remove('wait');cs.forEach(function(el){var to=+el.dataset.to,dp=+el.dataset.dp||0,d=+el.dataset.dur||1300,s=null;
-setTimeout(function(){requestAnimationFrame(function f(t){s=s||t;var k=Math.min(1,(t-s)/d);k=1-Math.pow(1-k,3);el.textContent=(to*k).toLocaleString('en-GB',{minimumFractionDigits:dp,maximumFractionDigits:dp});if(k<1)requestAnimationFrame(f)})},+el.dataset.delay||900)})}
-if(!('IntersectionObserver' in window))return go();
-var io=new IntersectionObserver(function(e){if(e[0].isIntersecting){io.disconnect();go()}},{threshold:.4});io.observe(st)})();
-</script>
 <script src="https://unpkg.com/@bwalletx/connect@0.5.0/dist/bwalletx-connect.global.js" integrity="sha384-1XiN/accJppMI7qXUHzNrUAdUWIotONkjNy7rZBrwcvPxDCFk1yC83JY2c4LZ8gg" crossorigin="anonymous"></script>
 <script src="/bwx-connect.js"></script>
 </body>
