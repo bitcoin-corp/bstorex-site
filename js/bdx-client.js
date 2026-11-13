@@ -1,6 +1,8 @@
-// Copied unchanged from bitcoin-corp/bdrivex-site js/bdx-client.js at main 536791a.
+// Copied from bitcoin-corp/bdrivex-site js/bdx-client.js at main 536791a.
 // bStoreX and bDriveX are two front doors to the same storage API (files.bdrivex.com), so uploads, keys and links
 // must work exactly the same way. Fix bugs upstream in bdrivex-site first, then copy the file here again.
+// One change from upstream, worth taking back there: ApiError carries `retryAfter` (seconds) from a 429's
+// Retry-After header, when the browser can read it (the API has to list it in Access-Control-Expose-Headers).
 
 // bDriveX client: seal a file, upload it in resumable chunks, make and open share links.
 // Plain ES module with no globals, so the site pages and the Node end-to-end test run the same code.
@@ -33,7 +35,9 @@ export function api(base, token) {
     if (!r.ok) {
       let j = null;
       try { j = await r.json(); } catch {}
-      throw new ApiError(r.status, (j && j.error) || `bDriveX said ${r.status}.`, j);
+      const e = new ApiError(r.status, (j && j.error) || `bDriveX said ${r.status}.`, j);
+      e.retryAfter = Number(r.headers.get('retry-after')) || null; // bStoreX: null when CORS hides the header
+      throw e;
     }
     return r;
   };
