@@ -226,7 +226,7 @@ footer{border-top:1px solid #121317;padding:40px 0 56px;color:var(--dim);font-si
       <a class="btn btn-ghost" href="#providers">List your storage</a>
     </div>
     <div class="acct-cta">
-      <div><b>Your storage</b><span>If your wallet is invited, you can keep files here today. It’s bDriveX storage, run by bCorp: the same account and files as on <a href="https://bdrivex.com">bDriveX</a>.</span></div>
+      <div><b>Your storage</b><span>If your wallet is invited, you can keep files here today. It’s bDriveX storage, run by The Bitcoin Corporation Ltd (bCorp): the same account and files as on <a href="https://bdrivex.com">bDriveX</a>.</span></div>
       <button class="btn-s" id="open-storage" type="button">Connect bWalletX</button>
     </div>
     <p class="hint"><span class="ink">The market isn’t live yet,</span> and no providers are listed.</p>
@@ -330,7 +330,7 @@ footer{border-top:1px solid #121317;padding:40px 0 56px;color:var(--dim);font-si
       <div>
         <p class="kicker">Your storage</p>
         <h1>Your files</h1>
-        <p class="acct-sub">These are the same files you see in <a href="https://bdrivex.com">bDriveX</a>: one account, opened from either site. Each file is encrypted on this device before it’s uploaded, and only your wallet can open it.</p>
+        <p class="acct-sub">These are the same files you see in <a href="https://bdrivex.com">bDriveX</a>: one account, opened from either site. Each file is encrypted on this device before it’s uploaded, and only your wallet can open it, unless you share a link from bDriveX.</p>
         <p class="beta-note"><b>Beta: no backups yet.</b> Keep your own copy of anything you upload.</p>
       </div>
       <div class="meter" id="meter">
@@ -349,6 +349,7 @@ footer{border-top:1px solid #121317;padding:40px 0 56px;color:var(--dim);font-si
         <span class="drop-s" id="drop-s">or choose files. Up to 2 GB each.</span>
         <span class="drop-seal"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Encrypted on this device before upload</span>
       </label>
+      <p class="drop-terms">By uploading you agree to the <a href="https://bwalletx.com/terms">bDriveX Terms</a>.</p>
       <ul class="jobs" id="jobs" aria-label="Uploads" hidden></ul>
       <div class="resumes" id="resumes" hidden></div>
     </section>
@@ -359,7 +360,7 @@ footer{border-top:1px solid #121317;padding:40px 0 56px;color:var(--dim);font-si
       <ul class="files" id="files"><li class="loading">Loading your files&hellip;</li></ul>
       <div class="unlock" id="unlock-row" hidden><span>Some files are locked on this device.</span><button class="btn-s" id="unlock" type="button">Unlock with bWalletX</button></div>
       <p class="row-err" id="unlock-err" role="alert" hidden></p>
-      <p class="keys" id="keys-note">Each file’s key is kept in your wallet, so your files open on any device you sign in on, here or in bDriveX. The storage only ever holds scrambled bytes.</p>
+      <p class="keys" id="keys-note">Each file’s key is kept in your wallet, so your files open on any device you sign in on, here or in bDriveX. Your files and their names are stored encrypted: bCorp can see which wallet they belong to and each file’s size and upload date, but not its name, type or what’s inside.</p>
       <p class="share-note">To share a file with a link, use bDriveX: your files are already there. <a id="share-link" href="https://bdrivex.com/send">Share from bDriveX &rarr;</a></p>
     </section>
 

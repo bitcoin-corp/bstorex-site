@@ -379,7 +379,7 @@ function unlock(interactive) {
   });
   return unlocking;
 }
-const KEYS_NOTE = 'Each file’s key is kept in your wallet, so your files open on any device you sign in on, here or in bDriveX. The storage only ever holds scrambled bytes.';
+const KEYS_NOTE = 'Each file’s key is kept in your wallet, so your files open on any device you sign in on, here or in bDriveX. Your files and their names are stored encrypted: bCorp can see which wallet they belong to and each file’s size and upload date, but not its name, type or what’s inside.';
 
 // ---------- open and download (decrypted in this browser)
 
