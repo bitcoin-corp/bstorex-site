@@ -25,6 +25,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/account.css">
+<script>/* signed in on this tab: show the account view from the first paint, not the landing page then a jump */try{var bsx=JSON.parse(sessionStorage.getItem('bsx:session'));if(bsx&&bsx.scope!=='recipient'&&bsx.expiresAt>Date.now()+6e4)document.documentElement.classList.add('bsx-in')}catch(e){}</script>
 <style>
 :root{
   --bg:#000;--ink:#f4f1e8;--muted:#a9a69c;--dim:#8a877f;
@@ -197,11 +199,24 @@ footer{border-top:1px solid #121317;padding:40px 0 56px;color:var(--dim);font-si
     <a class="hide-s" href="#networks">Networks</a>
     <a class="hide-s" href="#providers">For providers</a>
     <span data-bwx-connect></span>
+    <div class="who" id="who" hidden></div>
   </nav>
 </header>
 
-<main>
-<div class="wrap hero">
+<main id="landing">
+<div class="wrap" id="invite" hidden>
+  <section class="invite" aria-labelledby="inv-h">
+    <span class="inv-i" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span>
+    <p class="kicker">Your storage</p>
+    <h1 id="inv-h" tabindex="-1">Storage is invite-only for now</h1>
+    <p class="inv-p">Your bWalletX is connected, but this wallet isn’t on the list for storage yet. We’re opening storage to invited wallets first.</p>
+    <p class="inv-p">If you’d like an invite, email us your wallet’s identity key:</p>
+    <div class="inv-key"><code id="inv-key"></code><button class="btn-s" id="inv-copy" type="button">Copy key</button></div>
+    <div class="inv-b"><a class="btn btn-gold" id="inv-mail" href="mailto:support@bwalletx.com">Email us</a><button class="btn btn-ghost" id="inv-out" type="button">Disconnect</button></div>
+  </section>
+</div>
+
+<div class="wrap hero" id="hero">
   <div>
     <p class="preview"><i aria-hidden="true"></i>Preview · coming soon</p>
     <h1>The storage<br><span>market.</span></h1>
@@ -210,7 +225,11 @@ footer{border-top:1px solid #121317;padding:40px 0 56px;color:var(--dim);font-si
       <a class="btn btn-gold" href="#how">See how it works</a>
       <a class="btn btn-ghost" href="#providers">List your storage</a>
     </div>
-    <p class="hint"><span class="ink">Nothing is live yet.</span> There are no providers listed and nothing to sign up for. For your own files today, use <a href="https://bdrivex.com">bDriveX</a>.</p>
+    <div class="acct-cta">
+      <div><b>Your storage</b><span>If your wallet is invited, you can keep files here today. It’s bDriveX storage, run by The Bitcoin Corporation Ltd (bCorp): the same account and files as on <a href="https://bdrivex.com">bDriveX</a>.</span></div>
+      <button class="btn-s" id="open-storage" type="button">Connect bWalletX</button>
+    </div>
+    <p class="hint"><span class="ink">The market isn’t live yet,</span> and no providers are listed.</p>
   </div>
 
   <figure class="stage" style="margin:0" role="img" aria-label="Illustration of one bstore race: a file is published once with a payment for holding it, providers A and B hold it and pass a proof, provider C is still being checked, and the writer pays only the providers that passed.">
@@ -254,7 +273,7 @@ footer{border-top:1px solid #121317;padding:40px 0 56px;color:var(--dim);font-si
     <p class="kicker">Networks</p>
     <h2>The first network: bstore.</h2>
     <p class="sub">Each network on bStoreX will have its own providers, terms and way of proving what it holds. We start with one, and plan to add more.</p>
-    <p class="sub"><span class="ink">Storage is provided by the listed provider, not by bStoreX or The Bitcoin Corporation Ltd (bCorp).</span> bStoreX is where you find and compare providers.</p>
+    <p class="sub"><span class="ink">Storage on a listed network is provided by that network’s providers, not by bStoreX or The Bitcoin Corporation Ltd (bCorp).</span> bStoreX is where you find and compare them. The storage you can use today is different: your bStoreX account is bDriveX storage, run by bCorp. Networks like bstore will be listed alongside it.</p>
     <div class="nets">
       <article class="net">
         <div class="net-h"><h3>bstore</h3><span class="tag exp">Experimental</span><span class="tag soon">Not listed yet</span></div>
@@ -305,6 +324,56 @@ footer{border-top:1px solid #121317;padding:40px 0 56px;color:var(--dim);font-si
 </section>
 </main>
 
+<main id="account" hidden>
+  <div class="wrap acct-wrap">
+    <div class="acct-head">
+      <div>
+        <p class="kicker">Your storage</p>
+        <h1>Your files</h1>
+        <p class="acct-sub">These are the same files you see in <a href="https://bdrivex.com">bDriveX</a>: one account, opened from either site. Each file is encrypted on this device before it’s uploaded, and only your wallet can open it, unless you share a link from bDriveX.</p>
+        <p class="beta-note"><b>Beta: no backups yet.</b> Keep your own copy of anything you upload.</p>
+      </div>
+      <div class="meter" id="meter">
+        <div class="meter-t"><b id="use-n">&nbsp;</b><span>of <span id="use-q">&hellip;</span> used</span></div>
+        <div class="track" id="use-track" role="meter" aria-label="Storage used" aria-valuemin="0" aria-valuemax="100"><span id="use-bar"></span></div>
+        <p class="meter-s" id="use-s">Loading&hellip;</p>
+      </div>
+    </div>
+
+    <section class="panel" aria-labelledby="up-h">
+      <h2 id="up-h" class="sr">Upload files</h2>
+      <label class="drop" id="drop">
+        <input type="file" id="pick" multiple aria-label="Choose files to upload">
+        <span class="drop-i" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4M6.5 9.5 12 4l5.5 5.5"/><path d="M4 15v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg></span>
+        <b>Drop files here</b>
+        <span class="drop-s" id="drop-s">or choose files. Up to 2 GB each.</span>
+        <span class="drop-seal"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Encrypted on this device before upload</span>
+      </label>
+      <p class="drop-terms">By uploading you agree to the <a href="https://bwalletx.com/terms">bDriveX Terms</a>.</p>
+      <ul class="jobs" id="jobs" aria-label="Uploads" hidden></ul>
+      <div class="resumes" id="resumes" hidden></div>
+    </section>
+
+    <section class="panel" aria-labelledby="files-h">
+      <div class="panel-h"><h2 id="files-h">Files</h2><span class="dim" id="files-n"></span></div>
+      <p class="banner" id="files-err" role="alert" hidden><span id="files-err-t"></span><button class="btn-s" id="files-retry" type="button">Try again</button></p>
+      <ul class="files" id="files"><li class="loading">Loading your files&hellip;</li></ul>
+      <div class="unlock" id="unlock-row" hidden><span>Some files are locked on this device.</span><button class="btn-s" id="unlock" type="button">Unlock with bWalletX</button></div>
+      <p class="row-err" id="unlock-err" role="alert" hidden></p>
+      <p class="keys" id="keys-note">Each file’s key is kept in your wallet, so your files open on any device you sign in on, here or in bDriveX. Your files and their names are stored encrypted: bCorp can see which wallet they belong to and each file’s size and upload date, but not its name, type or what’s inside.</p>
+      <p class="share-note">To share a file with a link, use bDriveX: your files are already there. <a id="share-link" href="https://bdrivex.com/send">Share from bDriveX &rarr;</a></p>
+    </section>
+
+    <aside class="where" aria-label="Where your files are kept">
+      <p class="kicker">Where your files are kept</p>
+      <p><b>In bDriveX storage, run by The Bitcoin Corporation Ltd (bCorp).</b> It’s the storage you can use from bStoreX today. Storage networks like bstore will be listed alongside it when they’re ready, so you can compare them. None is listed yet.</p>
+      <p class="dim">Signed in somewhere you shouldn’t be? <button class="link-btn" id="signout-all" type="button">Sign out everywhere</button></p>
+    </aside>
+  </div>
+</main>
+
+<div class="toast" id="toast" role="status" aria-live="polite" hidden><p id="toast-t"></p><button type="button" id="toast-x" aria-label="Dismiss">&times;</button></div>
+
 <footer>
   <div class="wrap foot">
     <a class="brand" href="/"><img src="/logo.svg" alt="" width="18" height="24"><span>bStore<span class="gold">X</span></span></a>
@@ -318,7 +387,8 @@ footer{border-top:1px solid #121317;padding:40px 0 56px;color:var(--dim);font-si
   </div>
   <p class="wrap operator">The Bitcoin Corporation Ltd · Company no. 16735102 · Flat 6, 315 Barking Road, London E13 8EE · <a href="mailto:support@bwalletx.com">support@bwalletx.com</a></p>
 </footer>
-<script src="https://unpkg.com/@bwalletx/connect@0.5.0/dist/bwalletx-connect.global.js" integrity="sha384-1XiN/accJppMI7qXUHzNrUAdUWIotONkjNy7rZBrwcvPxDCFk1yC83JY2c4LZ8gg" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@bwalletx/connect@0.5.4/dist/bwalletx-connect.global.js" integrity="sha384-XcXqSpSaaJDaG6j9SOt91Q/jyCgXXsLTkjLKUUtVBjQHTi8qRDbhD+hviUB5soO8" crossorigin="anonymous"></script>
 <script src="/bwx-connect.js"></script>
+<script type="module" src="/js/account.js"></script>
 </body>
 </html>
